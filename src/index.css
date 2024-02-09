@@ -12,7 +12,9 @@ body {
 }
 
 .main-logo {
-  width: 12vw;
+  /* width: 12vw; */
+  width: 200px;
+  margin-top: 10px;
   background-color: transparent;
 }
 
@@ -40,6 +42,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 400;
 }
 
 .login-form {
@@ -48,7 +51,7 @@ body {
   position: relative;
   margin-top: 100px;
   /* background-color: black; */
-  background-color: rgba(0, 0, 0, 0.75); 
+  background-color: rgba(0, 0, 0, 0.65); 
   color: #fff;
   padding: 10px;
   border-radius: 5px;
@@ -90,11 +93,11 @@ body {
 
 .or {
   text-align: center;
-  margin-block: 30px;
+  margin-block: 20px;
 }
 
 .sign-in-code {
-  background-color: rgba(249, 249, 249, 0.1);
+  background-color: rgba(249, 249, 249, 0.2);
   padding: 14px;
   border-radius: 5px;
   text-align: center;
@@ -136,4 +139,49 @@ body {
   color: gray;
   margin-block: 20px;
   font-size: 0.9rem;
+}
+
+
+footer {
+  background-color: rgba(9, 9, 9, 0.70);
+  color: grey;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 40px;
+  margin-top: 13px;
+}
+
+footer ul {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  margin-top: 30px;
+  list-style-type: none;
+}
+
+footer ul li {
+  padding: 10px 0;
+}
+
+
+@media (max-width : 610px) {
+  .login-form-main {
+    width: 100%;
+    background-color: black;
+  }
+  .login-form {
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+  }
+
+  .header {
+    background-color: black;
+  }
+
+  .main-logo {
+    position: relative;
+    left: -50px;
+    width: 150px;
+  }
 }
