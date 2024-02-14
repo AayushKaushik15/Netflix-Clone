@@ -185,3 +185,10 @@ footer ul li {
     width: 150px;
   }
 }
+
+.error {
+  margin-bottom: 7px;
+  color: #ff1621;
+  font-family: "Inter";
+  font-weight: 500;
+}

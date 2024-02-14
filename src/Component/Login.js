@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Header from './Header'
 import { useState } from 'react'
+import { validation } from '../utils/validation'
+
 const Login = () => {
 
   const [isSignInForm, setIsSignFrom]  = useState(true);
+  const [messageStore, setMessage] = useState();
 
   function toggleSignInForm () {
     setIsSignFrom(!isSignInForm)
   }
-// Formic {form} library 
+
+  const password = useRef(null)
+  const email = useRef(null)
+
+  function clickHandler () {
+    const passMessage = validation(email.current.value, password.current.value)
+    setMessage(passMessage)
+  }
+
+
   return (
     <div>
         <Header/>
@@ -16,16 +28,17 @@ const Login = () => {
             <img className='login-img' src="https://assets.nflxext.com/ffe/siteui/vlv3/5e16108c-fd30-46de-9bb8-0b4e1bbbc509/29d8d7d7-83cc-4b5f-aa9b-6fd4f68bfaa6/IN-en-20240205-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="" />
         </div>
         <div className='login-form-main'>
-            <form className='login-form'>
+            <form onSubmit={(e) => e.preventDefault()} className='login-form'>
                 <h1>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
                   <div className='inputs'>
                   {
                     !isSignInForm && <input type="text" name="" id="" placeholder='Full Name' required/>
                   }
-                  <input type="email" name="" id="" placeholder='Email address' required/>
-                  <input type="password" name="" id="" placeholder='password' required/>
+                  <input ref={email} type="email" name="" id="" placeholder='Email address' required/>
+                  <input ref={password} type="password" name="" id="" placeholder='password' required/>
                   </div>
-                <button>{isSignInForm ? "Sign In" : "Sign Up"}</button>
+                  <p className='error'>{messageStore}</p>
+                <button onClick={clickHandler}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
                 <p className='or'>OR</p>
                 <p className='sign-in-code'>Use a Sign-in code</p>
                 <p className='forgot' >Forgot password?</p>
