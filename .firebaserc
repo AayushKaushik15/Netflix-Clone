@@ -1,5 +1,16 @@
 {
   "projects": {
-    "default": "netflix-clone-bbe76"
+    "default": "netflix-clone-bbe76",
+    "ignore" : [
+      "firebase.json",
+      "**/.**",
+      "**/node_modules/**"
+    ],
+    "rewrites" : [
+      {
+        "source" : "**",
+        "destination" : "/index.html"
+      }
+    ]
   }
 }
