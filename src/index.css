@@ -4,26 +4,46 @@
   box-sizing: border-box;
   font-family: "inter";
   font-weight: medium;
-  /* background-color: black; */
 }
 
 body {
   background-color: black;
+  color: #fff;
 }
 
 .main-logo {
   /* width: 12vw; */
-  width: 200px;
-  margin-top: 10px;
+  display: inline-block;
+  /* margin-left: 100px; */
+  width: 190px;
   background-color: transparent;
+}
+
+.right-logo {
+  width: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signout-box {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.signout-box span {
+  margin-left: 10px;
 }
 
 .header {
   position: absolute;
-  padding: 0px 10%;
-  background-color: transparent;
+  /* background-color: red; */
   width: 100%;
-  display: block;
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -56,7 +76,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   height: 724px;
-  width: 480px;
+  width: 450px;
   padding: 48px 68px;
 }
 
@@ -91,6 +111,10 @@ body {
   border-radius: 5px;
 }
 
+.login-form button:hover {
+  background-color: #be010a
+}
+
 .or {
   text-align: center;
   margin-block: 20px;
@@ -103,6 +127,10 @@ body {
   text-align: center;
   font-weight: 600;
   cursor: pointer;
+}
+
+.sign-in-code:hover {
+  background-color: rgba(238, 238, 238, 0.3);
 }
 
 .forgot {
@@ -177,12 +205,27 @@ footer ul li {
 
   .header {
     background-color: black;
+    padding: 0px 5px
   }
 
   .main-logo {
     position: relative;
-    left: -50px;
+    /* left: -50px; */
     width: 150px;
+    margin-left: 15px;
+  }
+}
+
+@media (max-width : 810px) {
+  .main-logo {
+    position: relative;
+    /* left: -50px; */
+    width: 150px;
+    margin-left: 15px;
+  }
+
+  .header {
+    padding: 0px 8px;
   }
 }
 
@@ -192,3 +235,8 @@ footer ul li {
   font-family: "Inter";
   font-weight: 500;
 }
+
+
+
+/* Browser */
+
