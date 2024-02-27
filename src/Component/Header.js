@@ -7,6 +7,7 @@ import {auth} from "../utils/firebase"
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser ,removeUser } from '../utils/userSlice';
+import { user_Avatar } from '../utils/constant';
 
 function Header() {
 
@@ -36,7 +37,7 @@ function Header() {
       }
     });
 
-    // unsubscribe when component unmounts;
+    // unsubscribe when component
     return () => unsubscribe();
   }, []);
 
@@ -47,7 +48,7 @@ function Header() {
 
       {user && 
         <div className='signout-box'>
-          <img className="right-logo" src="https://occ-0-2152-3646.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABZumJ3wvSKM7od-r3UjhVF9j3yteWlQYA-51F3SNoI682llhul1Xf_CUkMnfP_17Md2lpOOhbwHeGufvo8kOTjptoS_bcwtniHKz.png?r=e6e" alt="" />
+          <img className="right-logo" src={user_Avatar} alt="" />
           <p onClick={handleSignOut}>Sign out</p>
         </div>
       }

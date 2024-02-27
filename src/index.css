@@ -76,8 +76,8 @@ body {
   padding: 10px;
   border-radius: 5px;
   height: 724px;
-  width: 450px;
-  padding: 48px 68px;
+  width: 380px;
+  padding: 40px 40px;
 }
 
 .login-form h1 {
@@ -234,6 +234,7 @@ footer ul li {
   color: #ff1621;
   font-family: "Inter";
   font-weight: 500;
+  font-size: 0.8rem;
 }
 
 

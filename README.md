@@ -15,6 +15,9 @@
     - bugfix : if the user is not logged in redirect to slash browse an vice - versa;
 
     - unsubscribed to the onAuth stateChange call back;
+    - add hardcoded values to hte constants files;
+    - Register TMDB API and get access token
+    - Get data from TMBD now playing movies list API;
 
 
 # Features

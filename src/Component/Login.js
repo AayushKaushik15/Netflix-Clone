@@ -27,7 +27,7 @@ const Login = () => {
       email.current.value,
       password.current.value,
     );
-    setMessage(passMessage);
+    // setMessage(passMessage);
 
     if (!isSignInForm) {
       //* Sign Up login
