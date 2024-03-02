@@ -49,7 +49,7 @@ function Header() {
       {user && 
         <div className='signout-box'>
           <img className="right-logo" src={user_Avatar} alt="" />
-          <p onClick={handleSignOut}>Sign out</p>
+          <p className='logOut' onClick={handleSignOut}>Sign out</p>
         </div>
       }
     </div>
