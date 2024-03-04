@@ -18,6 +18,15 @@
     - add hardcoded values to hte constants files;
     - Register TMDB API and get access token
     - Get data from TMBD now playing movies list API;
+    - Custom hooks for now playing movies 
+    - updated Store with movies store
+    - Planning for MainContainer and SecondaryContainer
+    - Then I fetchData form TrailerVideo;
+    - Update the store with trailer videoData;
+    - Embedded the youtube video
+    - and make it auto play and mute
+    - Css classes to make it responsive for large screens [100vh];
+    
 
 
 # Features
