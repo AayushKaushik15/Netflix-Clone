@@ -37,6 +37,13 @@ body {
   margin-left: 10px;
 }
 
+.search_button {
+  padding: 0px 30px;
+  font-size: 1rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .header {
   position: fixed;
   /* background-color: red; */
@@ -262,8 +269,11 @@ footer ul li {
 
 
 .videoTitle {
-  padding-top: 25%;
+  padding-top: 17%;
   padding-left: 40px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  background: linear-gradient(to right, black, transparent);
 }
 
 .videoTitle h1 {
@@ -280,6 +290,10 @@ footer ul li {
   margin-top: 10px;
 }
 
+.videoButtons {
+  display: flex;
+}
+
 .videoButtons button {
   margin: 5px;
   padding: 10px 30px;
@@ -288,7 +302,10 @@ footer ul li {
   font-size: 1.2rem;
   border: none;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
+
 
 .btnTwo {
   background-color: gray;
@@ -300,10 +317,15 @@ footer ul li {
   opacity: 0.6;
 }
 
-.infoIcon {
-  font-size: 1.5rem;
+.info {
+  font-size: 2rem;
   color: #fff;
 }
+
+.icon {
+  margin-right: 5px;
+}
+
 
 /* iframe */
 
@@ -313,14 +335,56 @@ footer ul li {
 
 iframe {
   position: absolute;
-  top: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
+  margin-top: -120px;
+  aspect-ratio: 16/9; 
   z-index: -1;
-  /* opacity: 0.4 */
+  object-fit: cover;
+  border: none;
 }
 
-.videoTitle {
-  aspect-ratio: 16/9;
-  background: linear-gradient(to right, black, transparent);
+.black {
+  background-color: #000;
+}
+
+
+/* movies card */
+
+
+.movies {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: scroll;
+  gap: 10;
+}
+
+
+.title_list {
+  margin-top: 27px;
+  margin-bottom: 5px;
+  font-size: 2rem;
+}
+
+.movie_list_container {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.movie_Card {
+  padding: 2px 4px;
+}
+
+.movie_Card img {
+  object-fit: cover;
+  width: 180px;
+}
+
+.secondary-container {
+  margin-top: -320px;
+  z-index: 20;
+  position: relative;
 }

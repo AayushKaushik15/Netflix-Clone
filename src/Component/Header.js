@@ -1,60 +1,76 @@
-
-
-import React, { useEffect } from 'react'
-import logo from "../assets/netflix-logo.png"
+import React, { useEffect, useState } from 'react';
+import logo from "../assets/netflix-logo.png";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import {auth} from "../utils/firebase"
+import { auth } from "../utils/firebase";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser ,removeUser } from '../utils/userSlice';
+import { addUser, removeUser } from '../utils/userSlice';
 import { user_Avatar } from '../utils/constant';
+import { toggleGptSearchView } from '../utils/gptSlice';
 
 function Header() {
-
-  const user = useSelector((store) => store.user)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const user = useSelector((store) => store.user);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleSignOut () {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      dispatch (removeUser())
-    }).catch((error) => {
-      // An error happened.
-    });
+
+  const handleGptSearch = () => {
+    // toggle GPT Search
+    dispatch(toggleGptSearchView())
   }
 
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      dispatch(removeUser());
+    }).catch((error) => {
+      console.error("Sign out error:", error);
+    });
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse")
+        navigate("/browse");
       } else {
         dispatch(removeUser());
-        navigate('/')
+        navigate('/');
       }
     });
 
-    // unsubscribe when component
-    return () => unsubscribe();
-  }, []);
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup the event listener when component unmounts
+    return () => {
+      unsubscribe();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [dispatch, navigate]);
 
   return (
-    <div className='header'>
-
+    <div className={`header ${isScrolled ? 'black' : ''}`}>
       <img className='main-logo' src={logo} alt="Netflix-logo.png" />
 
-      {user && 
+      {user &&
         <div className='signout-box'>
+          <button className='search_button' onClick={handleGptSearch}>Search</button>
           <img className="right-logo" src={user_Avatar} alt="" />
           <p className='logOut' onClick={handleSignOut}>Sign out</p>
         </div>
       }
     </div>
-  )
+  );
 }
 
-
-export default Header
+export default Header;

@@ -26,6 +26,7 @@
     - Embedded the youtube video
     - and make it auto play and mute
     - Css classes to make it responsive for large screens [100vh];
+    - making a search bar for movies
     
 
 
