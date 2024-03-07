@@ -11,6 +11,7 @@ import { toggleGptSearchView } from '../utils/gptSlice';
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch)
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -64,7 +65,9 @@ function Header() {
 
       {user &&
         <div className='signout-box'>
-          <button className='search_button' onClick={handleGptSearch}>Search</button>
+          <button className='search_button' onClick={handleGptSearch}>{
+            showGptSearch ? "Home" : "Search"
+          }</button>
           <img className="right-logo" src={user_Avatar} alt="" />
           <p className='logOut' onClick={handleSignOut}>Sign out</p>
         </div>

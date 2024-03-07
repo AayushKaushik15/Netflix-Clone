@@ -6,13 +6,16 @@
   box-sizing: border-box;
   font-family: "Poppins";
   font-weight: medium;
+  scrollbar-width: none;
 }
 
 body {
   background-color: black;
   color: #fff;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+}
 .main-logo {
   /* width: 12vw; */
   display: inline-block;
@@ -387,4 +390,47 @@ iframe {
   margin-top: -320px;
   z-index: 20;
   position: relative;
+}
+
+
+.searchBar {
+  padding-top: 100px;
+  padding-left: 4%;
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+ 
+}
+
+input {
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.searchBar button {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #be010a;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.searchBar button:active {
+  opacity: 0.9;
+}
+
+.arrow_icons {
+  font-size: 4rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.arrow_icons:hover {
+  font-size: 4rem;
+  transform: scale(2);
 }

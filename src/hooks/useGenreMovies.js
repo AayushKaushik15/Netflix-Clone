@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const useGenreMovies = () => {
   const dispatch = useDispatch();
-  console.log("why")
+
 
   const genreMovies = async () => {
     const data = await fetch(
@@ -14,7 +14,7 @@ const useGenreMovies = () => {
     );
 
     const json = await data.json();
-    console.log(json.results);
+
     dispatch(addGenreMovies(json.results));
   };
 

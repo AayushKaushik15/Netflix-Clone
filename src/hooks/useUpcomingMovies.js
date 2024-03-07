@@ -5,7 +5,6 @@ import { useEffect } from "react";
 
 const useUpcomingMovies = () => {
   const dispatch = useDispatch();
-  console.log("why")
 
   const upComing = async () => {
     const data = await fetch(
@@ -14,7 +13,7 @@ const useUpcomingMovies = () => {
     );
 
     const json = await data.json();
-    console.log(json.results);
+
     dispatch(addUpComingMovies(json.results));
   };
 
